@@ -4,7 +4,7 @@ public record Song(
         Integer id,
         String title,
         String artist,
-        Genre[] genre,
+        Genre genre,
         String audiofile_path
 ) {
 
