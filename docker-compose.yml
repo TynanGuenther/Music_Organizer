@@ -2,9 +2,12 @@ version: '3.8'
 
 services:
   db:
-    image: postgres:alpine
-    ports:
-      - "5432:5432"
+    image: postgres:latest
+    env_file:
+      .env
     environment:
-      POSTGRES_USERNAME: postgres
-      POSTGRES_PASSWORD: password
+      - "POSTGRES_USER=${DB_USERNAME}"
+      - "POSTGRES_DB=${DB_DATABASE}"
+      - "POSTGRES_PASSWORD=${DB_PASSWORD}"
+    ports:
+      - '5432:5432'
